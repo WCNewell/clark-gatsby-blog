@@ -22,7 +22,7 @@ const HeaderContainer = styled.div `
       max-width: 960px;
       padding: 1.45rem 1.0875rem;   
 `
-const Header = () => (
+const Header = ({ data }) => (
   <HeaderWrapper>
     <HeaderContainer>
       <h1 style={{ margin: 0 }}>
@@ -46,6 +46,9 @@ const Header = () => (
         </li>
       </ul>
     </nav>
+      <p>{data.site.siteMetadata.title}</p>
+      <p>{data.site.siteMetadata.description}</p>
+      
     </HeaderContainer>
   </HeaderWrapper>
 )
@@ -59,3 +62,14 @@ Header.defaultProps = {
 }
 
 export default Header
+
+export const query = graphql `
+  query SiteMetaMore {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+  }
+`
