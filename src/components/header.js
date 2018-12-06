@@ -1,27 +1,33 @@
 import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
 
 import logo from '../images/SmOgLogoTrans.png'
+import BloggerImage from './bloggerImage'
 
 const HeaderWrapper = styled.div`
   
-    background: rebeccapurple;
     marginBottom: 1.45rem;
+    overflow: hidden;
+    position: relative;
+    height: 70vh;
     h1 {
       img {
         height: 200px;
       }
     }
-
 `
+
 const HeaderContainer = styled.div `
   
       margin: 0 auto;
       max-width: 960px;
-      padding: 1.45rem 1.0875rem;   
+      padding: 1.45rem 1.0875rem;
+      position: absolute;
+      z-index: 2;
 `
+
 const Header = ({ data }) => (
   <HeaderWrapper>
     <HeaderContainer>
@@ -36,40 +42,48 @@ const Header = ({ data }) => (
           <img src={logo} alt='Clark Newell Web Development Logo'/>
         </Link>
       </h1>
-    <nav>
-      <ul>
-        <li>
-          <Link to='/'>Home</Link>
-        </li>
-        <li>
-          <Link to='/about'>About</Link>
-        </li>
-      </ul>
-    </nav>
-      <p>{data.site.siteMetadata.title}</p>
-      <p>{data.site.siteMetadata.description}</p>
-      
+      <nav>
+        <ul>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/about'>About</Link>
+          </li>
+        </ul>
+      </nav>
     </HeaderContainer>
+      <BloggerImage
+      //  style = {
+      //   {
+      //     position: 'absolute',
+      //     left: 0,
+      //     top: 0,
+      //     width: '100%',
+      //     height: '100%'
+      //   }
+      // }
+      />
   </HeaderWrapper>
 )
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+// Header.propTypes = {
+//   siteTitle: PropTypes.string,
+// }
 
-Header.defaultProps = {
-  siteTitle: '',
-}
+// Header.defaultProps = {
+//   siteTitle: '',
+// }
 
 export default Header
 
-export const query = graphql `
-  query SiteMetaMore {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query SiteHeader {
+//     site {
+//       siteMetadata {
+//         title
+//         description
+//       }
+//     }
+//   }
+// `
