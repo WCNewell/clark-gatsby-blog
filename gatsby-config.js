@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Blog',
-    description: 'Poop!'
+    title: 'Clark Newell Blog',
+    description: 'Newbs first blog'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -9,10 +9,18 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
     },
+    'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {

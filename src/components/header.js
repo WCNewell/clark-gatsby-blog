@@ -28,7 +28,7 @@ const HeaderContainer = styled.div `
       z-index: 2;
 `
 
-const Header = ({ data }) => (
+const Header = () => (
   <HeaderWrapper>
     <HeaderContainer>
       <h1 style={{ margin: 0 }}>
@@ -39,7 +39,13 @@ const Header = ({ data }) => (
             textDecoration: 'none',
           }}
         >
-          <img src={logo} alt='Clark Newell Web Development Logo'/>
+          <img
+            style={{
+              margin: 20
+            }}
+
+            src={logo} alt='Clark Newell Web Development Logo'
+          />
         </Link>
       </h1>
       <nav>
@@ -53,37 +59,8 @@ const Header = ({ data }) => (
         </ul>
       </nav>
     </HeaderContainer>
-      <BloggerImage
-      //  style = {
-      //   {
-      //     position: 'absolute',
-      //     left: 0,
-      //     top: 0,
-      //     width: '100%',
-      //     height: '100%'
-      //   }
-      // }
-      />
+      <BloggerImage />
   </HeaderWrapper>
 )
 
-// Header.propTypes = {
-//   siteTitle: PropTypes.string,
-// }
-
-// Header.defaultProps = {
-//   siteTitle: '',
-// }
-
 export default Header
-
-// export const query = graphql`
-//   query SiteHeader {
-//     site {
-//       siteMetadata {
-//         title
-//         description
-//       }
-//     }
-//   }
-// `
