@@ -7,11 +7,10 @@ import PostListing from '../components/Posts/PostListing'
 
 const IndexPage = ({ data }) => (
   <Layout>
-      <p>{data.site.siteMetadata.title}</p>
-      <p>{data.site.siteMetadata.description}</p>
-      {data.allMarkdownRemark.edges.map(({ node }) => {
-        return <PostListing post={ node } />
-      })}
+      <h1>Posts</h1>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+      <PostListing key={ node.id } post={ node } />
+      ))}
     <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
       <SpaceManImage />
     </div>
@@ -31,11 +30,13 @@ export const query = graphql`
     allMarkdownRemark {
       edges {
         node {
+          id
           frontmatter {
             title
             date(formatString: "MMMM DD YYYY")
           }
           html
+          excerpt(pruneLength: 280)
         }
       }
     }

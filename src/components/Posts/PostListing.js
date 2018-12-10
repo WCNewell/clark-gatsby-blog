@@ -3,8 +3,17 @@ import React from 'react'
 
 const PostListing = ({ post }) =>
     <article>
-        <h1>{ post.frontmatter.title }</h1>
-        <h3>{ post.frontmatter.date }</h3>
+        <h2>{ post.frontmatter.title }</h2>
+        <span>{ post.frontmatter.date }</span>
+        <div><br></br></div>
+        <p>
+            { post.excerpt }
+        </p>
+
+
+        {/* <div dangerouslySetInnerHTML={{
+            __html: post.html
+        }} /> */}
     </article>
 
 export default PostListing
