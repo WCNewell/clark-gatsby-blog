@@ -9,11 +9,6 @@ const PostListing = ({ post }) =>
         <p>
             { post.excerpt }
         </p>
-
-
-        {/* <div dangerouslySetInnerHTML={{
-            __html: post.html
-        }} /> */}
     </article>
 
 export default PostListing
